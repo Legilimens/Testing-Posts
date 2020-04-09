@@ -1,18 +1,7 @@
 import {
-  CREATE_SYNC_POST, FETCH_POSTS, SHOW_LOADER, HIDE_LOADER, SHOW_ALERT, HIDE_ALERT,
-} from './types';
-
-export const showAlert = (text) => (dispatch) => {
-  dispatch({
-    type: SHOW_ALERT,
-    payload: text,
-  });
-  setTimeout(() => {
-    dispatch({
-      type: HIDE_ALERT,
-    });
-  }, 3 * 1000);
-};
+  CREATE_SYNC_POST, FETCH_POSTS,
+} from '../types';
+import { showAlert, showLoader, hideLoader } from '../app/actions';
 
 export const createPost = (post) => (dispatch) => {
   dispatch({
@@ -21,14 +10,6 @@ export const createPost = (post) => (dispatch) => {
   });
   // dispatch(showAlert('Запись добавлена'));
 };
-
-export const showLoader = () => ({
-  type: SHOW_LOADER,
-});
-
-export const hideLoader = () => ({
-  type: HIDE_LOADER,
-});
 
 export const fetchPosts = () => async (dispatch) => {
   try {

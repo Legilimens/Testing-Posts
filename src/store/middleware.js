@@ -1,5 +1,5 @@
 import { CREATE_SYNC_POST } from './types';
-import { showAlert } from './actions';
+import { showAlert } from './app/actions';
 
 const forbiden = ['fuck', 'spam', 'php'];
 

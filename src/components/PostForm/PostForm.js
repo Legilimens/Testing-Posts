@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { showAlert, createPost } from '../../store/actions';
+import { showAlert } from '../../store/app/actions';
+import { createPost } from '../../store/post/actions';
 
 function PostForm() {
   const [title, setTitle] = useState('');
@@ -10,7 +11,8 @@ function PostForm() {
   function submitHandler(event) {
     event.preventDefault();
     if (!title.trim()) {
-      return dispatch(showAlert('Название поста не может быть пустым'));
+      dispatch(showAlert('Название поста не может быть пустым'));
+      return;
     }
     const newPost = { id: Date.now().toString(), title };
     dispatch(createPost(newPost));
